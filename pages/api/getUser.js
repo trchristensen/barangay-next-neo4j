@@ -3,7 +3,6 @@ import { supabase } from '../../utils/initSupabase'
 // Example of how to verify and get user data server-side.
 const getUser = async (req, res) => {
   const token = req.headers.token
-  console.log('request headers', req.headers)
 
   const { data: user, error } = await supabase.auth.api.getUser(token)
 

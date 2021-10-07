@@ -4,7 +4,8 @@ const CurrentUser: any = {
   //@ts-ignore
   async currentUser(_parent, _args, context, _info) {
     return {
-      id: context.idToken?.uid!,
+      // id: context.idToken?.uid!,
+      id: 'hi'
     };
   },
 };

@@ -21,13 +21,13 @@ const apolloServer = new ApolloServer({
   introspection: true,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground],
   resolvers: resolvers,
-//   debug: false,
-  // context: ({request}) => {
-  //     console.log(`  Auth Header ${request.headers['authorization']} `);
-  //     return {
-
-  //     }
-  // }
+  //   debug: false,
+  context: ({ req }) => {
+    console.log('req.headers', req.headers);
+    return {
+      authScope: req.headers.authorization,
+    };
+  },
 });
 
 const startServer = apolloServer.start();

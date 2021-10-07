@@ -11,6 +11,9 @@ const fetcher = (url, token) =>
     credentials: 'same-origin',
   }).then((res) => res.json())
 
+
+  
+
 const Index = () => {
   const { user, session } = Auth.useUser()
   const { data, error } = useSWR(session ? ['/api/getUser', session.access_token] : null, fetcher)
